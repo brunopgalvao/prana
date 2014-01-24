@@ -1,7 +1,5 @@
 # Prana
-    $ cd
-    $ mkdir rails_projects
-    $ cd /rails_projects
+
     $ git clone git@github.com:brunopgalvao/prana.git
     $ cd prana
     $ bundle install
