@@ -7,9 +7,7 @@ class Ability
        if user.admin?
          can :manage, :all
        else
-         can :destroy, :Micropost
-         can :destroy, :User
-         can :destroy, :Relationship
+         can :destroy, Micropost
        end
     
     # The first argument to `can` is the action you are giving the user 

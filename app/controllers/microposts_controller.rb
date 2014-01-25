@@ -1,6 +1,7 @@
 class MicropostsController < ApplicationController
+  authorize_resource
   before_action :signed_in_user, only: [:create, :destroy]
-  before_action :correct_user,   only: :destroy
+  #before_action :correct_user,   only: :destroy
 
   def create
     @micropost = current_user.microposts.build(micropost_params)
@@ -14,6 +15,7 @@ class MicropostsController < ApplicationController
   end
   
   def destroy
+    @micropost = current_user.microposts.find_by(id: params[:id])
     @micropost.destroy
     redirect_to root_url
   end
