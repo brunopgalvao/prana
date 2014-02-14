@@ -6,8 +6,12 @@ class Ability
        user ||= User.new # guest user (not logged in)
        if user.admin?
          can :manage, :all
+       elsif user.student?
+         can :manage, Micropost
+         can [:create, :read, :update, :following], User
        else
-         can :destroy, Micropost
+         can :manage, Micropost
+         can :create, User      
        end
     
     # The first argument to `can` is the action you are giving the user 
