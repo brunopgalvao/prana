@@ -8,9 +8,8 @@ class Ability
          can :manage, :all
        elsif user.student?
          can :manage, Micropost
-         can [:create, :read, :update, :following], User
+         can [:create, :read, :update, :following, :followers], User
        else
-         can :manage, Micropost
          can :create, User      
        end
     
