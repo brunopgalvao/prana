@@ -1,5 +1,6 @@
 class StaticPagesController < ApplicationController
-
+  skip_authorization_check
+  
   def home
     if signed_in?
       @micropost  = current_user.microposts.build
