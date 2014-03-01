@@ -1,0 +1,19 @@
+<% provide(:title, 'Add Class') %>
+<div class="row-fluid" style="padding-top: 50px;">
+          <div class="span4">
+            <%= form_for(@yoga_class) do |f| %>
+              <%= render 'shared/error_messages', object: f.object %>
+      
+              <%= f.text_field :name, placeholder: "Class Name" %>
+
+              <%= f.text_field :desc, placeholder: "Class Description" %>
+
+              <%= f.date_field :day, placeholder: "Day" %>
+
+              <%= f.time_field :time, placeholder: "Time" %>
+        
+		      <%= f.submit "Add Class", class: "btn btn-large btn-primary" %>
+            <% end %>
+
+        </div>
+</div>
