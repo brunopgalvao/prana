@@ -7,6 +7,7 @@ class Ability
        if user.admin?
          can :manage, :all
        elsif user.student?
+         can :manage, YogaClass
          can :manage, Micropost
          can [:create, :read, :update, :following, :followers], User
        else
