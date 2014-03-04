@@ -1,12 +1,12 @@
 <% provide(:title, 'Sign up') %>
-<div class="row-fluid" style="padding-top: 50px;">
-        <div class="span8">
+<div class="container-fluid" style="padding-top: 50px;">
+        <div class="col-md-8">
               <h1>inhale, exhale, flow</h1>
               <p class="lead">a donation based studio | suggested donation $10</p>
         </div>
 
 
-          <div class="span4">
+          <div class="col-md-4">
             <%= form_for(@user) do |f| %>
               <%= render 'shared/error_messages', object: f.object %>
       
