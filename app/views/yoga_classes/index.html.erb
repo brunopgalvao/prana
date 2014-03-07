@@ -1,6 +1,16 @@
 <% provide(:title, 'Schedule') %>
 <h1>Schedule</h1>
 
-<ul class="users">
-  <%= render @yoga_class %>
-</ul>
+<table class="table table-striped">
+	<tr>
+		<td>Class</td>
+		<td>Description</td>
+		<td>Day</td>
+		<td>Time</td>
+		<td>Instructor</td>
+		<% if can? :destroy, @yoga_class %>
+		<td></td>
+		<% end %>
+	</tr>
+	<%= render @yoga_class %>
+</table>

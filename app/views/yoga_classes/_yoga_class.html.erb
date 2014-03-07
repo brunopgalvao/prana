@@ -1,14 +1,15 @@
-<li>
-  <%= link_to yoga_class.name, yoga_class %>
-  <span><%= yoga_class.desc %></span>
-  <span><%= yoga_class.day %></span>
-  <span><%= yoga_class.time.strftime('%l:%M %p') %></span>
-  <span><%= yoga_class.instructor %></span>
-  <% if can? :destroy, @yoga_class %>
-    | <%= link_to "", yoga_class, method: :delete,
-                                  data: { confirm: "You sure?" }, :class => "glyphicon glyphicon-trash" %>
-  <% end %>
-</li>
+	<tr>
+		<td><%= link_to yoga_class.name, yoga_class %></td>
+		<td><%= yoga_class.desc %></td>
+		<td><%= yoga_class.day %></td>
+		<td><%= yoga_class.time.strftime('%l:%M %p') %></td>
+		<td><%= yoga_class.instructor %></td>
+		<% if can? :destroy, @yoga_class %>
+		<td><%= link_to "", yoga_class, method: :delete,
+		                              data: { confirm: "You sure?" }, :class => "glyphicon glyphicon-trash" %></td>
+		<% end %>
+	</tr>
+
 
 
 
