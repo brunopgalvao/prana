@@ -1,11 +1,14 @@
-<% provide(:title, @user.name) %>
+<% provide(:title, @yoga_class.name) %>
 <div class="row">
   <aside class="col-md-4">
     <section>
       <h1>
-        <%= gravatar_for @yoga_class %>
-        <%= @yoga_class.name %>
+		<span><%= link_to @yoga_class.name, @yoga_class %></span>
       </h1>
+	  <span><%= @yoga_class.desc %></span>
+	  <span><%= @yoga_class.day %></span>
+	  <span><%= @yoga_class.time.strftime('%l:%M %p') %></span>
+	  <span><%= @yoga_class.instructor %></span>
     </section>
   </aside>
 </div>

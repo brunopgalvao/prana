@@ -1,19 +1,20 @@
 <% provide(:title, 'Add Class') %>
-<div class="row-fluid" style="padding-top: 50px;">
-          <div class="col-md-4">
-            <%= form_for(@yoga_class) do |f| %>
-              <%= render 'shared/error_messages', object: f.object %>
-      
-              <%= f.text_field :name, placeholder: "Class Name" %>
-
-              <%= f.text_field :desc, placeholder: "Class Description" %>
-
-              <%= f.date_field :day, placeholder: "Day" %>
-
-              <%= f.time_field :time, placeholder: "Time" %>
-        
-		      <%= f.submit "Add Class", class: "btn btn-large btn-primary" %>
+<div class="container-fluid" style="padding-top: 50px;">
+	
+            <%= form_for @yoga_class do |f| %>
+			
+			  <div class="col-md-4 col-md-offset-4">
+              	<%= render 'shared/error_messages', object: f.object %>      
+              	<%= f.text_field :name, placeholder: "Class Name" %>
+              	<%= f.text_field :desc, placeholder: "Class Description" %>
+				<%= f.select :day, options_for_select([['Select a day...'], ['Monday'], ['Tuesday'], ['Wednesday'], ['Thursday'], ['Friday'], ['Saturday'], ['Sunday']]) %>
+				<div class="field">
+					<%= time_select :yoga_class, :time, {ampm: true} %>
+				</div>
+              	<%#= f.time_field :time, placeholder: "Time" %>
+				<%= f.text_field :instructor, placeholder: "Instructor Name" %>       
+		      	<%= f.submit "Add Class", class: "btn btn-large btn-primary" %>
+			  </div>
+			  
             <% end %>
-
-        </div>
 </div>
