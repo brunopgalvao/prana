@@ -38,7 +38,7 @@
       </ul>
 	  <ul class="nav navbar-nav navbar-right">
 		<% if signed_in? %>
-	  	  	<li role="presentation"><%= link_to "", signout_path, :class => "glyphicon glyphicon-log-out", method: "delete" %></li>
+	  	  	<li role="presentation"><%= link_to "", signout_path, :class => "hidden-xs glyphicon glyphicon-log-out", method: "delete" %></li>
 		  <% else %>
 		  	<li role="presentation"><%= link_to "", signin_path, :class => "glyphicon glyphicon-user" %></li>		  
 		<% end %>
