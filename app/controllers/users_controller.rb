@@ -8,6 +8,10 @@ class UsersController < ApplicationController
   def index
     @users = User.paginate(page: params[:page])
   end
+  
+  def instructors
+    @users = User.paginate(page: params[:page]).find_all_by_instructor(true)
+  end
 
   def show
     @user = User.find(params[:id])
@@ -16,6 +20,15 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+  end
+  
+  def add_instructor
+    if @user.update_attributes(user_params)
+      flash[:success] = "Instructor Added!"
+      redirect_to @user
+    else
+      render 'edit'
+    end
   end
 
   def create
