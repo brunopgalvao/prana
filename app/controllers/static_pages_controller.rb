@@ -9,13 +9,4 @@ class StaticPagesController < ApplicationController
       redirect_to signup_path
     end
   end
-  
-  def help
-  end
-
-  def about
-  end
-
-  def contact
-  end
 end
