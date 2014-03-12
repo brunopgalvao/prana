@@ -12,7 +12,7 @@ class Ability
          can [:create, :read, :update, :following, :followers], User
        else
          can :read, YogaClass
-         can [:new, :create], User      
+         can [:new, :create, :instructors], User      
        end
     
     # The first argument to `can` is the action you are giving the user 
