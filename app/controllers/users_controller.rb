@@ -10,8 +10,7 @@ class UsersController < ApplicationController
   end
   
   def instructors
-    #@users = User.paginate(page: params[:page])
-    @instructors = User.paginate(page: params[:page]).find_all_by_instructor(true)
+    @users = User.paginate(page: params[:page]).find_all_by_instructor(true)
   end
 
   def show
@@ -44,6 +43,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = User.find(params[:id])
   end
 
   def update

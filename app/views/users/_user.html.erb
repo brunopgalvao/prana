@@ -2,7 +2,9 @@
   <%= gravatar_for user, size: 52 %>
   <%= link_to user.name, user %>
   <% if can? :destroy, @user %>
-  	| <%#= link_to "", [:edit, @user], :class => "glyphicon glyphicon-edit" %>
+    | <%#= link_to 'edit', :action => :edit, :id => user.id %>
+    | <%#= link_to "Edit", [@user, edit_user_path(user)] %>
+  	| <%= link_to "", edit_user_path(user.id), :class => "glyphicon glyphicon-edit" %>
     | <%= link_to "", user, method: :delete,
                                   data: { confirm: "You sure?" }, :class => "glyphicon glyphicon-trash" %>
   <% end %>
