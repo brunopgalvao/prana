@@ -38,8 +38,8 @@
             <li role="presentation"><%= link_to "Profile", current_user %></li>
             <li role="presentation"><%= link_to "Settings", edit_user_path(current_user) %></li>           
           <% else %>
-		  	<li><%= link_to "Instructors", instructors_path %></li>
 		  	<li><%= link_to "Schedule", yoga_classes_path %></li>
+			<li><%= link_to "Instructors", instructors_path %></li>
           <% end %>
           </ul>
         </li>

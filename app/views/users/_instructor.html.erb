@@ -1,0 +1,9 @@
+<li>
+  <%= gravatar_for instructor, size: 52 %>
+  <%= link_to instructor.name, instructor %>
+  <% if can? :destroy, @instructor %>
+  	| <%= link_to "", [:edit, instructor], :class => "glyphicon glyphicon-edit" %>
+    | <%= link_to "", user, method: :delete,
+                                  data: { confirm: "You sure?" }, :class => "glyphicon glyphicon-trash" %>
+  <% end %>
+</li>
