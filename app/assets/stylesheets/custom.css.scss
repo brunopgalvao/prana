@@ -4,6 +4,13 @@
 
 $grayMediumLight: #eaeaea;
 
+
+@mixin rounded($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      border-radius: $radius;
+  }
+
 @mixin box_sizing {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -237,6 +244,7 @@ input {
 }
 
 /* microposts */
+ 
 
 .microposts {
   list-style: none;
@@ -254,6 +262,7 @@ input {
   color: $gray-light;
 }
 .gravatar {
+  @include rounded(30px);
   float: left;
   margin-right: 10px;
 }
