@@ -5,7 +5,7 @@ class YogaClassesController < ApplicationController
   before_action :correct_user,   only: [:edit, :update]
   
   def index
-    @yoga_class = YogaClass.all(:order => 'id DESC')
+    @yoga_class = YogaClass.all(:order => 'Day')
     # not working with pg @yoga_class = YogaClass.all (:order => 'CASE Day WHEN "Monday" THEN 1 WHEN "Tuesday" THEN 2 WHEN "Wednesday" THEN 3 WHEN "Thursday" THEN 4 WHEN "Friday" THEN 5 WHEN "Saturday" THEN 6 WHEN "Sunday" THEN 7 END')
   end
   
@@ -20,7 +20,7 @@ class YogaClassesController < ApplicationController
   def create
     @yoga_class = YogaClass.new(yoga_class_params)
     if @yoga_class.save
-      flash[:success] = "Keep it Rollin!"
+      flash[:success] = "Class added!"
       redirect_to @yoga_class
     else
       render 'new'
