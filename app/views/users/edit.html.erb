@@ -1,5 +1,4 @@
 <% provide(:title, "Edit user") %> 
-<h1>Update your profile</h1>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
@@ -11,6 +10,8 @@
 
       <%= f.label :email %>
       <%= f.text_field :email %>
+	  
+	  <%= f.check_box :instructor %>
 
       <%= f.label :password %>
       <%= f.password_field :password %>

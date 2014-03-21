@@ -14,4 +14,5 @@ Prana::Application.routes.draw do
   match '/signout', to: 'sessions#destroy',     via: 'delete'
   match '/about',   to: 'static_pages#about',   via: 'get'
   match '/instructors', to: 'users#instructors', via: 'get'
+  match '/instructor/add', to: 'users#add_instructor', via: 'get'
 end

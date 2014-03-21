@@ -13,6 +13,10 @@ class UsersController < ApplicationController
     @users = User.paginate(page: params[:page]).find_all_by_instructor(true)
   end
 
+  def add_instructor
+    @users = User.order('name').paginate(page: params[:page])
+  end
+
   def show
     @user = User.find(params[:id])
     @microposts = @user.microposts.paginate(page: params[:page])
@@ -22,7 +26,7 @@ class UsersController < ApplicationController
     @user = User.new
   end
   
-  def add_instructor
+  def edit_instructor
     if @user.update_attributes(user_params)
       flash[:success] = "Instructor Added!"
       redirect_to @user
