@@ -12,17 +12,16 @@
       <%= f.label :email %>
       <%= f.text_field :email %>
 	  
-	  <div class="control-group">
-	      <div class="controls">
-	          <%= f.label "Instructor" %> <br />
-	          <%= f.check_box :instructor %> <br />
-	      </div>
-	      <div class="field">
-	          <%= f.label "Admin" %> <br />
-	          <%= f.check_box :admin %> <br />
-	      </div>
+	  <div class="btn-group" data-toggle="buttons">
+      	<%= f.label :instructor, :class=>"btn btn-primary" do %>
+      		<%= f.check_box :instructor %> Instructor
+		<% end %>
+		
+      	<%= f.label :admin, :class=>"btn btn-primary" do %>
+      		<%= f.check_box :admin %> Admin
+		<% end %>
 	  </div>
-
+	  
       <%= f.label :password %>
       <%= f.password_field :password %>
 
