@@ -12,26 +12,28 @@
       <%= f.label :email %>
       <%= f.text_field :email %>
 	  
-	  <div class="btn-group" data-toggle="buttons">
-      	<%= f.label :instructor, :class=>"btn btn-primary" do %>
-      		<%= f.check_box :instructor %> Instructor
-		<% end %>
-		
-      	<%= f.label :admin, :class=>"btn btn-primary" do %>
-      		<%= f.check_box :admin %> Admin
-		<% end %>
-	  </div>
-	  
       <%= f.label :password %>
       <%= f.password_field :password %>
 
       <%= f.label :password_confirmation, "Confirm Password" %>
       <%= f.password_field :password_confirmation %>
-
+	  
+	  <div id="checkbox_role">
+	      <%= f.label :instructor do %>
+	      	<%= f.check_box :instructor %> Instructor
+		  <% end %>
+	
+	      <%= f.label :admin do %>
+	      	<%= f.check_box :admin %> Admin
+		  <% end %>
+	  </div>
+	  
       <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
     <% end %>
 
-    <%= gravatar_for @user %>
-    <a href="http://gravatar.com/emails">change</a>
+	<div id="change_gravatar">
+    	<%= gravatar_for @user %>
+    	<a href="http://gravatar.com/emails">change</a>
+	</div>
   </div>
 </div>
