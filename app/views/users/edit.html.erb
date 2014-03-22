@@ -18,6 +18,8 @@
       <%= f.label :password_confirmation, "Confirm Password" %>
       <%= f.password_field :password_confirmation %>
 	  
+	  <%= f.hidden_field :student, :value => '1' %>
+	  
 	  <div id="checkbox_role">
 	      <%= f.label :instructor do %>
 	      	<%= f.check_box :instructor %> Instructor
