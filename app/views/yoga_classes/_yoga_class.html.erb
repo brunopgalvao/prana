@@ -5,7 +5,9 @@
 		<td><%= yoga_class.time.strftime('%l:%M %p') %></td>
 		<td><%= yoga_class.instructor %></td>
 		<% if can? :destroy, @yoga_class %>
-		<td><%= link_to "", yoga_class, method: :delete,
+		<td>
+			<%= link_to "", edit_yoga_class_path(yoga_class), :class => "glyphicon glyphicon-edit" %>
+			<%= link_to "", yoga_class, method: :delete,
 		                              data: { confirm: "You sure?" }, :class => "glyphicon glyphicon-trash" %></td>
 		<% end %>
 	</tr>

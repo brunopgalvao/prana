@@ -2,7 +2,7 @@ class YogaClassesController < ApplicationController
   authorize_resource
   before_action :signed_in_user,
                 only: [:edit, :update, :destroy]
-  before_action :correct_user,   only: [:edit, :update]
+  # before_action :correct_user,   only: [:edit, :update]
   
   def index
     @yoga_class = YogaClass.all(:order => 'Day')
@@ -13,6 +13,20 @@ class YogaClassesController < ApplicationController
     @yoga_class = YogaClass.find(params[:id])
   end
     
+  def edit
+    @yoga_class = YogaClass.find(params[:id])
+  end
+  
+  def update
+    @yoga_class = YogaClass.find_by_id(params[:id])
+    if @yoga_class.update_attributes(yoga_class_params)
+      flash[:success] = "Class Updated"
+      redirect_to @yoga_class
+    else
+      render 'edit'
+    end
+  end
+  
   def new
     @yoga_class = YogaClass.new
   end
