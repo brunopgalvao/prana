@@ -1,7 +1,6 @@
 	<tr>
 		<td><%= link_to yoga_class.name, yoga_class %></td>
 		<td><%= yoga_class.desc %></td>
-		<td><%= yoga_class.day %></td>
 		<td><%= yoga_class.time.strftime('%l:%M %p') %></td>
 		<td><%= yoga_class.instructor %></td>
 		<% if can? :destroy, @yoga_class %>

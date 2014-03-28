@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140310213158) do
+ActiveRecord::Schema.define(version: 20140328222152) do
 
   create_table "microposts", force: true do |t|
     t.string   "content"
@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 20140310213158) do
   create_table "yoga_classes", force: true do |t|
     t.string   "name"
     t.string   "desc"
-    t.string   "day"
+    t.integer  "day",        limit: 255
     t.time     "time"
     t.string   "instructor"
     t.datetime "created_at"
