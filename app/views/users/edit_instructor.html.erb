@@ -1,0 +1,35 @@
+<% provide(:title, "Edit User") %> 
+<h1></h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@user) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+
+      <%= f.label :email %>
+      <%= f.text_field :email %>	  
+	  
+	  <%= f.hidden_field :student, :value => '1' %>
+	  
+	  <div id="checkbox_role">
+	      <%= f.label :instructor do %>
+	      	<%= f.check_box :instructor %> Instructor
+		  <% end %>
+	
+	      <%= f.label :admin do %>
+	      	<%= f.check_box :admin %> Admin
+		  <% end %>
+	  </div>
+	  
+      <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
+    <% end %>
+
+	<div id="change_gravatar">
+    	<%= gravatar_for @user %>
+    	<a href="http://gravatar.com/emails">change</a>
+	</div>
+  </div>
+</div>
