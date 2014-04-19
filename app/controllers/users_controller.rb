@@ -21,18 +21,9 @@ class UsersController < ApplicationController
   def new
     @user = User.new
   end
-  
-  def edit_instructor
-    if @user.update_attributes(user_params)
-      flash[:success] = "Instructor Added!"
-      redirect_to @user
-    else
-      render 'edit'
-    end
-  end
 
   def create
-    @user = User.new(user_params)
+    @user = User.new(new_user_params)
     if @user.save
       sign_in @user
       flash[:success] = "Welcome to PranaOne!"
@@ -44,15 +35,29 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    if current_user?(@user)
+      render 'edit'
+    else
+      render 'edit_user'
+    end
   end
 
   def update
     @user = User.find_by_id(params[:id])
-    if @user.update_attributes(user_params)
-      flash[:success] = "Profile updated"
-      redirect_to @user
+    if current_user?(@user)
+      if @user.update_attributes(user_params)
+        flash[:success] = "Profile updated"
+        redirect_to @user
+      else
+          render 'edit'
+      end
     else
-      render 'edit'
+      if @user.update_attributes(studio_owner_params)
+        flash[:success] = "Profile updated"
+        redirect_to @user
+      else
+          render 'edit_user'
+      end
     end
   end
 
@@ -78,14 +83,23 @@ class UsersController < ApplicationController
 
   private
 
+    def new_user_params
+      params.require(:user).permit(:name, :email, :password,
+                                 :password_confirmation)
+    end
+
     def user_params
       if current_user.admin?
-        params.require(:user).permit(:name, :email, :password,
-                                   :password_confirmation, :student, :instructor, :admin)
+          params.require(:user).permit(:name, :email, :password,
+                                   :password_confirmation, :instructor)
       else
         params.require(:user).permit(:name, :email, :password,
                                    :password_confirmation)  
       end                           
+    end
+    
+    def studio_owner_params
+      params.require(:user).permit(:name, :email, :instructor) if current_user.admin?
     end
 
     # Before filters
