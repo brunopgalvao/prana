@@ -7,6 +7,7 @@
     $ bundle exec rake db:test:prepare
     $ bundle exec rspec spec/
     $ rails server
+    $ bundle exec rake db:populate
 
 ## In-the-box
 
