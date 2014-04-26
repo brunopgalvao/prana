@@ -1,5 +1,9 @@
 	<tr>
-		<td><%= link_to yoga_class.name, yoga_class %></td>
+		<% if signed_in? %>
+		  <td><%= link_to yoga_class.name, yoga_class %></td>
+		<% else %>
+		  <td><%= yoga_class.name %></td>
+		<% end %>
 		<td><%= yoga_class.desc %></td>
 		<td><%= yoga_class.time.strftime('%l:%M %p') %></td>
 		<td><%= yoga_class.instructor %></td>

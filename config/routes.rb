@@ -9,6 +9,7 @@ Prana::Application.routes.draw do
   resources :microposts,    only: [:create, :destroy]
   resources :relationships, only: [:create, :destroy]
   root to: 'static_pages#home'
+  match '/events',   to: 'static_pages#events',  via: 'get'
   match '/rates',   to: 'static_pages#rates',    via: 'get'
   match '/signup',  to: 'users#new',             via: 'get'
   match '/signin',  to: 'sessions#new',          via: 'get'
