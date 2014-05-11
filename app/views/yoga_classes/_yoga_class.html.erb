@@ -1,11 +1,28 @@
 	<tr>
+		<% if yoga_class.day == 1 %>
+			<td>Monday</td>
+		<% elsif yoga_class.day == 2 %>
+			<td>Tuesday</td>
+		<% elsif yoga_class.day == 3 %>
+			<td>Wednesday</td>
+		<% elsif yoga_class.day == 4 %>
+			<td>Thursday</td>
+		<% elsif yoga_class.day == 5 %>
+			<td>Friday</td>
+		<% elsif yoga_class.day == 6 %>
+			<td>Saturday</td>
+		<% elsif yoga_class.day == 7 %>
+			<td>Sunday</td>
+		<% else %>
+		  <td></td>
+		<% end %>
+		<td><%= yoga_class.time.strftime('%l:%M %p') %></td>
 		<% if signed_in? %>
 		  <td><%= link_to yoga_class.name, yoga_class %></td>
 		<% else %>
 		  <td><%= yoga_class.name %></td>
 		<% end %>
 		<td><%= yoga_class.desc %></td>
-		<td><%= yoga_class.time.strftime('%l:%M %p') %></td>
 		<td><%= yoga_class.instructor %></td>
 		<% if can? :destroy, @yoga_class %>
 		<td>
