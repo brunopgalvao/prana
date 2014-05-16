@@ -58,8 +58,21 @@
 	      <% end %>
 	    </li>         
         <% else %>
-	  	<li><%= link_to "Schedule", yoga_classes_path %></li>
-		<li><%= link_to "Instructors", instructors_path %></li>
+	    <li role="presentation">
+	      <%= link_to(yoga_classes_path) do %>
+	        <span class="glyphicon glyphicon-list"></span> Schedule
+	      <% end %>
+	    </li>
+	    <li role="presentation">
+	      <%= link_to(events_path) do %>
+	        <span class="glyphicon glyphicon-calendar"></span> Events
+	      <% end %>
+	    </li>
+	    <li role="presentation">
+	      <%= link_to(instructors_path) do %>
+	        <span class="glyphicon glyphicon-user"></span> Instructors
+	      <% end %>
+	    </li>
       <% end %>
 
           </ul>

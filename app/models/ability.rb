@@ -8,11 +8,13 @@ class Ability
        if user.admin? #|| user.email = 'barbutos92@gmail.com'
          can :manage, :all
        else user.student?
+         can :read, Event
          can :read, YogaClass
          can :manage, Micropost
          can [:create, :read, :update, :following, :followers, :instructors], User
        end
     else
+         can :read, Event
          can :read, YogaClass
          can [:new, :create, :instructors], User      
     end
