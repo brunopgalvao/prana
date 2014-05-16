@@ -1,4 +1,6 @@
 Prana::Application.routes.draw do
+  resources :events
+
   resources :users do
     member do
       get :following, :followers
