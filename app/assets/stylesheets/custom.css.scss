@@ -231,7 +231,10 @@ aside {
 /* forms */
 
 input, textarea, select, .uneditable-input {
-  border: 1px solid #bbb;
+  border-bottom: 2px solid #bbb;
+  border-top: 0px solid #bbb;
+  border-left: 0px solid #bbb;
+  border-right: 0px solid #bbb;
   width: 100%;
   margin-bottom: 15px;
   @include box_sizing;
