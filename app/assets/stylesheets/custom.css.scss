@@ -79,6 +79,11 @@ p {
 
 /* header */
 
+.navbar-inverse {
+	background-color: #0066FF;
+	border-color: #0000FF;
+}
+
 #logo {
   float: left;
   margin-right: 10px;
@@ -93,6 +98,30 @@ p {
     color: white;
     text-decoration: none;
   }
+}
+
+.navbar-inverse .navbar-nav > li > a {
+	color: white;
+}
+
+.navbar-inverse .navbar-nav>li>a:hover, .navbar-inverse .navbar-nav>li>a:focus {
+    color: white;
+    background-color: transparent;
+	border-bottom: 3px solid white;
+	padding-bottom: 12px;
+}
+
+.btn-primary {
+	color: white;
+	background-color: #0066FF;
+	border-color: #0000FF;
+	
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active {
+	color: white;
+	background-color: #0066CC;
+	border-color: #0000FF;
 }
 
 /* footer */
