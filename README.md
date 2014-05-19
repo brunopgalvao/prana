@@ -1,5 +1,8 @@
 # Prana
 
+
+# Installing
+
     $ git clone git@github.com:brunopgalvao/prana.git
     $ cd prana
     $ bundle install --without production
@@ -16,3 +19,7 @@
 * We have our own custom authentication
 * We use [CanCan](https://github.com/ryanb/cancan) for authorization
 
+## License
+
+- Prana is licensed under the MIT License:
+  - http://opensource.org/licenses/mit-license.html
