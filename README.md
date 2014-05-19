@@ -11,6 +11,10 @@
     $ bundle exec rspec spec/
     $ rails server
     $ bundle exec rake db:populate
+    
+# Contributing
+
+    Please do :)
 
 ## In-the-box
 
