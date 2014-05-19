@@ -14,7 +14,7 @@
     
 # Contributing
 
-    Please do :)
+Please do :)
 
 ## In-the-box
 
