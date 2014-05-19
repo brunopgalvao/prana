@@ -21,5 +21,4 @@
 
 ## License
 
-- Prana is licensed under the MIT License:
-  - http://opensource.org/licenses/mit-license.html
+- Prana is licensed under the [MIT License](https://github.com/brunopgalvao/prana/blob/master/LICENSE)
