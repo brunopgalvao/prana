@@ -1,4 +1,4 @@
-# Prana CMS
+# Prana
 
 
 # Installing
@@ -25,4 +25,4 @@ Please do!
 
 ## License
 
-- Prana CMS is licensed under the [MIT License](https://github.com/brunopgalvao/prana/blob/master/LICENSE)
+- Prana is licensed under the [MIT License](https://github.com/brunopgalvao/prana/blob/master/LICENSE)
