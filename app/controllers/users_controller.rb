@@ -90,16 +90,16 @@ class UsersController < ApplicationController
 
     def user_params
       if current_user.admin?
-          params.require(:user).permit(:name, :email, :password,
+          params.require(:user).permit(:name, :desc, :email, :password,
                                    :password_confirmation, :instructor)
       else
-        params.require(:user).permit(:name, :email, :password,
+        params.require(:user).permit(:name, :desc, :email, :password,
                                    :password_confirmation)  
       end                           
     end
     
     def studio_owner_params
-      params.require(:user).permit(:name, :email, :instructor) if current_user.admin?
+      params.require(:user).permit(:name, :desc, :email, :instructor) if current_user.admin?
     end
 
     # Before filters

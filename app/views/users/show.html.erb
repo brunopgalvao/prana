@@ -11,6 +11,9 @@
     <section>
       <%= render 'shared/stats' %>
     </section>
+    <section>
+      <%= @user.desc %>
+    </section>
   </aside>
   <div class="col-md-8">
     <%= render 'follow_form' if signed_in? %>
