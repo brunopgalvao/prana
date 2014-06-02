@@ -78,7 +78,13 @@
           </ul>
         </li>
       </ul>
+	  
 	  <ul class="nav navbar-nav navbar-right hidden-xs">
+		<li role="presentation">
+		  <%= link_to(teach_path) do %>
+		   <button type="button" class="btn btn-primary btn-sm">Become a Teacher</button>
+	      <% end %>
+	    </li>
 		<% if signed_in? %>
 	  	  	<li class="hidden-xs" role="presentation"><%= link_to "", signout_path, :class => "glyphicon glyphicon-log-out", method: "delete" %></li>
 		  <% else %>
