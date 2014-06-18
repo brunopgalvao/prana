@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140516205940) do
+ActiveRecord::Schema.define(version: 20140618225448) do
 
   create_table "events", force: true do |t|
     t.string   "title"
@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 20140516205940) do
     t.string   "desc"
     t.integer  "day",        limit: 255
     t.time     "time"
-    t.string   "instructor"
+    t.integer  "instructor", limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end

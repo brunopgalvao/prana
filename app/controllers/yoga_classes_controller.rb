@@ -10,6 +10,7 @@ class YogaClassesController < ApplicationController
   
   def show
     @yoga_class = YogaClass.find(params[:id])
+    @instructor = User.find_by name: instructor
   end
     
   def edit
