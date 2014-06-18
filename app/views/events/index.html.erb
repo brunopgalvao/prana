@@ -1,36 +1,30 @@
-<h1>Events</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @events.each do |event| %>
-      <tr>
+<div class="container-fluid">	
+	  
+	  <% @events.each do |event| %>
+	  <div class="row">
+	  <div class="col-md-12 event-title">
 		<% if signed_in? %>
-        	<td><%= link_to event.title, event %></td>
+	      	<%= link_to event.title, event %>
 		<% else %>
-			<td><%= event.title %></td>
+			<%= event.title %>
 		<% end %>
-        <td><%= event.desc %></td>
+	  </div>
+	  </div>
+	  <div class="row">
+	  <div class="col-md-12 event-desc">
+        <%= event.desc %>
+	  </div>
+	  </div>
+	  <div class="row">
+	  <div class="col-md-12 event-manage">
 		<% if can? :destroy, @event %>
-        <td><%= link_to 'Show', event %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        	<%= link_to 'Show', event %>
+        	<%= link_to 'Edit', edit_event_path(event) %>
+        	<%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %>
 		<% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+	  </div>
+	  </div>
+	  <% end %>
 
-<br>
-<% if can? :destroy, @event %>
-<%= link_to 'New Event', new_event_path %>
-<% end %>
+</div>
+

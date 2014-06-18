@@ -1,19 +1,22 @@
 <% provide(:title, "Sign in") %>
-<h1>Sign in</h1>
+<div class="container-fluid" style="padding-top: 50px;">
+	<div class="col-md-8">
+      <h1>inhale, exhale, flow</h1>
+      <p class="lead">a prana proud studio | online for everyone o_0</p>
+	</div>
+		
+  	<div class="col-md-4">
+      <%= form_for(:session, url: sessions_path) do |f| %>
 
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_for(:session, url: sessions_path) do |f| %>
+        <%= f.label :email %>
+        <%= f.text_field :email %>
 
-      <%= f.label :email %>
-      <%= f.text_field :email %>
+        <%= f.label :password %>
+        <%= f.password_field :password %>
 
-      <%= f.label :password %>
-      <%= f.password_field :password %>
+        <%= f.submit "Sign in", class: "btn btn-large btn-primary" %>
+      <% end %>
 
-      <%= f.submit "Sign in", class: "btn btn-large btn-primary" %>
-    <% end %>
-
-    <p>New user? <%= link_to "Sign up now!", signup_path %></p>
-  </div>
+      <p>New user? <%= link_to "Sign up now!", signup_path %></p>
+  	</div>
 </div>

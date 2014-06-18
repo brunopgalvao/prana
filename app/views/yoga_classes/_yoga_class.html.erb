@@ -23,7 +23,11 @@
 		  <td><%= yoga_class.name %></td>
 		<% end %>
 		<td><%= yoga_class.desc %></td>
-		<td><%= yoga_class.instructor %></td>
+	    <% if signed_in? %>
+	      <td><%= link_to yoga_class.instructor, yoga_class %></td>
+	    <% else %>
+	      <td><%= yoga_class.instructor %></td>
+	    <% end %>
 		<% if can? :destroy, @yoga_class %>
 		<td>
 			<%= link_to "", edit_yoga_class_path(yoga_class), :class => "glyphicon glyphicon-edit" %>

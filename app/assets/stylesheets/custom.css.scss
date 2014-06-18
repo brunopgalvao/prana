@@ -24,7 +24,7 @@ html {
 }
 
 body {
-  padding-top: 60px;
+  padding-top: 80px;
 }
 
 section {
@@ -280,4 +280,21 @@ aside {
     height: 100px;
     margin-bottom: 5px;
   }
+}
+
+/* Events */
+
+.event-title {
+	font-size: 30px;
+	font-weight: bold;
+	text-decoration: underline;
+	padding: 20px;
+}
+
+.event-desc {
+	padding: 20px;
+}
+
+.event-manage {
+	padding-bottom: 10px;
 }
