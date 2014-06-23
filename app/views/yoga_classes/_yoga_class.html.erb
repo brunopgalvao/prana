@@ -24,7 +24,7 @@
 		<% end %>
 		<td><%= yoga_class.desc %></td>
 	    <% if signed_in? %>
-	      <td><%= link_to yoga_class.instructor, @instructor %></td>
+	      <td><%= link_to yoga_class.instructor, user_path(yoga_class.instructor) %></td>
 	    <% else %>
 	      <td><%= yoga_class.instructor %></td>
 	    <% end %>
