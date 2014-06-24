@@ -85,20 +85,26 @@
 	  <ul class="nav navbar-nav navbar-right hidden-xs">
 		<li role="presentation">
 		  <%= link_to(teach_path) do %>
-		   <button type="button" class="btn btn-primary btn-sm">Become a Teacher</button>
+		   Become a Teacher
 	      <% end %>
 	    </li>
 		<% if signed_in? %>
 	  	  	<li class="hidden-xs" role="presentation"><%= link_to "", signout_path, :class => "glyphicon glyphicon-log-out", method: "delete" %></li>
 		  <% else %>
 		  	<li role="presentation"><%= link_to "Sign in", signin_path %></li>
+			<% if !current_page?(signup_path) %>
+				<li role="presentation"><%= link_to "Sign up", signup_path %></li>
+			<% end %>
 		<% end %>
 	  </ul>
 	  <ul class="nav navbar-nav navbar-right visible-xs">
 		<% if signed_in? %>
 	  	  	<li role="presentation"><%= link_to "Sign out", signout_path, method: "delete" %></li>
 		  <% else %>
-		    <li role="presentation"><%= link_to "Sign in", signin_path %></li>		  
+		    <li role="presentation"><%= link_to "Sign in", signin_path %></li>
+			<% if !current_page?(signup_path) %>
+				<li role="presentation"><%= link_to "Sign up", signup_path %></li>
+			<% end %>		  
 		<% end %>
 	  </ul>
     </div><!-- /.navbar-collapse -->

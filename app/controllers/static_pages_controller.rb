@@ -6,7 +6,7 @@ class StaticPagesController < ApplicationController
       @micropost  = current_user.microposts.build
       @feed_items = current_user.feed.paginate(page: params[:page])
     else
-      redirect_to signin_path
+      redirect_to signup_path
     end
   end
 end
