@@ -21,11 +21,13 @@
       <%= f.label :password_confirmation, "Confirm Password" %>
       <%= f.password_field :password_confirmation %>
 	  
-	  <div id="checkbox_role">
-	      <%= f.label :instructor do %>
-	      	<%= f.check_box :instructor %> Instructor
-		  <% end %>
-	  </div>
+	  <% if can? :destroy, @user %>
+		  <div id="checkbox_role">
+		      <%= f.label :instructor do %>
+		      	<%= f.check_box :instructor %> Instructor
+			  <% end %>
+		  </div>
+	  <% end %>
 	  
       <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
     <% end %>

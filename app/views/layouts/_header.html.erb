@@ -19,13 +19,13 @@
 	        <span class="glyphicon glyphicon-home"></span> Home
 	      <% end %>
 	    </li>
-		<% if signed_in? %>
+		<% if signed_in? & (can? :update, @yoga_class) %>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-list"></span> Schedule <b class="caret"></b></a>
           <ul class="dropdown-menu" role="menu">
 			<li role="presentation" class="dropdown-header">Manage Schedule</li>
 			<li><%= link_to "Schedule", yoga_classes_path %></li>
-            <li role="presentation"><%= link_to "Add a Class", new_yoga_class_path %></li>
+			<li role="presentation"><%= link_to "Add a Class", new_yoga_class_path %></li>
           </ul>
         </li>		
         <li class="dropdown">
@@ -45,6 +45,11 @@
             <li role="presentation"><%= link_to "Add an Event", new_event_path %></li>
           </ul>
         </li>
+		<li role="presentation">
+		  <%= link_to(teach_path) do %>
+		   <span class="glyphicon glyphicon-tower"></span> Train
+	      <% end %>
+	    </li>
 	    <li role="presentation">
 	      <%= link_to(rates_path) do %>
 	        <span class="glyphicon glyphicon-tasks"></span> Rates
@@ -71,27 +76,45 @@
 	        <span class="glyphicon glyphicon-calendar"></span> Events
 	      <% end %>
 	    </li>
+		<li role="presentation">
+		  <%= link_to(teach_path) do %>
+		   <span class="glyphicon glyphicon-tower"></span> Train
+	      <% end %>
+	    </li>
 	    <li role="presentation">
 	      <%= link_to(instructors_path) do %>
 	        <span class="glyphicon glyphicon-user"></span> Instructors
 	      <% end %>
 	    </li>
+	    <li role="presentation">
+	      <%= link_to(rates_path) do %>
+	        <span class="glyphicon glyphicon-tasks"></span> Rates
+	      <% end %>
+	    </li>
+		<% if signed_in? %>
+	    <li role="presentation">
+	      <%= link_to(current_user) do %>
+	        <span class="glyphicon glyphicon-user"></span> Me
+	      <% end %>
+	    </li>
+	    <li role="presentation">
+	      <%= link_to(edit_user_path(current_user)) do %>
+	        <span class="glyphicon glyphicon-cog"></span> Settings
+	      <% end %>
+	    </li>
+		<% end %>
       <% end %>
-
           </ul>
         </li>
       </ul>
 	  
 	  <ul class="nav navbar-nav navbar-right hidden-xs">
-		<li role="presentation">
-		  <%= link_to(teach_path) do %>
-		   Become a Teacher
-	      <% end %>
-	    </li>
 		<% if signed_in? %>
 	  	  	<li class="hidden-xs" role="presentation"><%= link_to "", signout_path, :class => "glyphicon glyphicon-log-out", method: "delete" %></li>
 		  <% else %>
-		  	<li role="presentation"><%= link_to "Sign in", signin_path %></li>
+		  	<% if !current_page?(signin_path) %>
+		  		<li role="presentation"><%= link_to "Sign in", signin_path %></li>
+			<% end %>
 			<% if !current_page?(signup_path) %>
 				<li role="presentation"><%= link_to "Sign up", signup_path %></li>
 			<% end %>
@@ -101,7 +124,9 @@
 		<% if signed_in? %>
 	  	  	<li role="presentation"><%= link_to "Sign out", signout_path, method: "delete" %></li>
 		  <% else %>
-		    <li role="presentation"><%= link_to "Sign in", signin_path %></li>
+		  	<% if !current_page?(signin_path) %>
+		    	<li role="presentation"><%= link_to "Sign in", signin_path %></li>
+			<% end %>
 			<% if !current_page?(signup_path) %>
 				<li role="presentation"><%= link_to "Sign up", signup_path %></li>
 			<% end %>		  

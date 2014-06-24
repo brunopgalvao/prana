@@ -15,11 +15,13 @@
       <%= f.label :email %>
       <%= f.text_field :email %>
 	  
-	  <div id="checkbox_role">
-	      <%= f.label :instructor do %>
-	      	<%= f.check_box :instructor %> Instructor
-		  <% end %>
-	  </div>
+	  <% if can? :destroy, @user %>
+		  <div id="checkbox_role">
+		      <%= f.label :instructor do %>
+		      	<%= f.check_box :instructor %> Instructor
+			  <% end %>
+		  </div>
+	  <% end %>
 	  
       <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
     <% end %>
