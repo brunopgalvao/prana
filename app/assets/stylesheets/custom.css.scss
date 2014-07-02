@@ -320,3 +320,26 @@ aside {
 .event-manage {
 	left: 10px;
 }
+
+/* modals */
+
+.modal-header {
+	border-bottom: none;
+}
+
+.modal-header .btn {
+	color: white;
+	margin-left: 90px;
+	padding-left: 40px;
+	padding-right: 40px;
+}
+
+.modal-body {
+	padding: 0px;
+}
+
+.modal-footer {
+	margin-top: 0px;
+	padding: 0px;
+	border-top: none;
+}

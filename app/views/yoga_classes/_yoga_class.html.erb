@@ -33,8 +33,41 @@
 			<%= link_to "Delete", yoga_class, method: :delete,
 		                              data: { confirm: "You sure?" } %></td>
 		<% end %>
+	    <% if signed_in? %>
+	      <td>
+		  <%= form_tag charges_path do %>
+		  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-description="One class"
+          data-amount="1000"></script>
+		  <% end %>
+		  </td>
+	    <% else %>
+	      <td>
+			<!-- Button trigger modal -->
+			<button class="btn btn-success btn-sm" data-toggle="modal" data-target="#myModal">
+			  Sign Up
+			</button>
+	      </td>
+	    <% end %>
 	</tr>
 
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <%= link_to "Sign In", signin_path, :class => "btn btn-primary" %>
+        <%= link_to "Sign Up", signup_path, :class => "btn btn-primary" %>
+      </div>
+      <div class="modal-body">
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>
 
 
 
