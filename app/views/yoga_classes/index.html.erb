@@ -1,17 +1,11 @@
 <% provide(:title, 'Schedule') %>
-<h1>Schedule</h1>
+
+<div class="manage">
+	<% if can? :destroy, @yoga_class %>
+		<span class="manage"><%= link_to "Add a Class", new_yoga_class_path %></span>
+	<% end %>
+</div>
 
 <table class="table table-striped">
-	<tr>
-		<td>Day</td>
-		<td>Time</td>
-		<td>Class</td>
-		<td>Description</td>
-		<td>Instructor</td>
-		<% if can? :destroy, @yoga_class %>
-		<td>Manage</td>
-		<td></td>
-		<% end %>
-	</tr>
 	<%= render @yoga_class %>
 </table>

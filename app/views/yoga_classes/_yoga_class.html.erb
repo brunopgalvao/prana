@@ -22,7 +22,6 @@
 		<% else %>
 		  <td><%= yoga_class.name %></td>
 		<% end %>
-		<td><%= yoga_class.desc %></td>
 	    <% if signed_in? %>
 	      <td><%= link_to yoga_class.instructor, user_path(yoga_class.instructor) %></td>
 	    <% else %>
@@ -30,9 +29,9 @@
 	    <% end %>
 		<% if can? :destroy, @yoga_class %>
 		<td>
-			<%= link_to "", edit_yoga_class_path(yoga_class), :class => "glyphicon glyphicon-edit" %>
-			<%= link_to "", yoga_class, method: :delete,
-		                              data: { confirm: "You sure?" }, :class => "glyphicon glyphicon-trash" %></td>
+			<%= link_to "Edit", edit_yoga_class_path(yoga_class) %> |
+			<%= link_to "Delete", yoga_class, method: :delete,
+		                              data: { confirm: "You sure?" } %></td>
 		<% end %>
 	</tr>
 

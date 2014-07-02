@@ -1,16 +1,27 @@
 <% provide(:title, @yoga_class.name) %>
 <div class="row">
-  <aside class="col-md-4">
-    <section>
-      <h1>
-		<span><%= @yoga_class.name %></span>
-      </h1>
-	  <span><%= @yoga_class.desc %></span>
-	  <span><%= @yoga_class.day %></span>
-	  <span><%= @yoga_class.time.strftime('%l:%M %p') %></span>
-	  <span><%= @yoga_class.instructor %></span>
-    </section>
-  </aside>
+	<div class="col-md-12">
+		<%= link_to "Schedule", yoga_classes_path, class: "crumb" %>
+	</div>
+	<div class="col-md-6 col-md-offset-3 event-title">
+		<%= @yoga_class.name %>
+	</div>
+	<div class="col-md-6 col-md-offset-3 event-desc">
+			<%= @yoga_class.desc %>
+		</div>
+		<div class="col-md-6 col-md-offset-3 event-desc">
+	  		<%= @yoga_class.day %>
+		</div>
+		<div class="col-md-6 col-md-offset-3 event-desc">
+	  	  	<%= @yoga_class.time.strftime('%l:%M %p') %>
+		</div>
+		<div class="col-md-6 col-md-offset-3 event-desc">
+	  	  	<%= @yoga_class.instructor %>
+		</div>
+		<div class="col-md-6 col-md-offset-3">
+			<% if can? :destroy, @yoga_class %>
+				<span class="manage"><%= link_to 'Edit', edit_yoga_class_path(@yoga_class) %></span> |
+				<span class="manage"><%= link_to 'Delete', @yoga_class, method: :delete, data: { confirm: 'Are you sure?' } %></span>
+			<% end %>
+		</div>
 </div>
-
-<%= link_to "Back to Schedule", yoga_classes_path %>

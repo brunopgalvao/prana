@@ -1,5 +1,11 @@
 <% provide(:title, 'Instructors') %>
-<h1>Instructors</h1>
+
+<div class="manage">
+	<% if can? :destroy, @user %>
+		<span class="manage"><%= link_to "Users", users_path %></span> |
+		<span class="manage"><%= link_to "Instructors", instructors_path %></span>
+	<% end %>
+</div>
 
 <%= will_paginate %>
 

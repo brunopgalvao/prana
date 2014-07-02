@@ -65,9 +65,29 @@ h2 {
   color: $gray-light;
 }
 
+div.manage {
+	padding-bottom: 10px;
+}
+
+span.manage {
+  text-align: left;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.crumb {
+  text-align: left;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
 p {
   font-size: 1.1em;
   line-height: 1.7em;
+}
+
+tr {
+	font-weight: bold;
 }
 
 .glyphicon-user {
@@ -294,8 +314,9 @@ aside {
 
 .event-desc {
 	padding: 20px;
+	left: 5px;
 }
 
 .event-manage {
-	padding-bottom: 10px;
+	left: 10px;
 }

@@ -1,3 +1,9 @@
+<div class="manage">
+	<% if can? :destroy, @user %>
+		<span class="manage"><%= link_to "Add an Event", events_path %></span>
+	<% end %>
+</div>
+
 <div class="container-fluid">	
 	  
 	  <% @events.each do |event| %>
@@ -11,17 +17,16 @@
 	  </div>
 	  </div>
 	  <div class="row">
-	  <div class="col-md-12 event-desc">
-        <%= event.desc %>
+	  <div class="col-md-12 event-manage">
+		<% if can? :destroy, @event %>
+        	<span class="manage"><%= link_to 'Edit', edit_event_path(event) %></span> |
+        	<span class="manage"><%= link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' } %></span>
+		<% end %>
 	  </div>
 	  </div>
 	  <div class="row">
-	  <div class="col-md-12 event-manage">
-		<% if can? :destroy, @event %>
-        	<%= link_to 'Show', event %>
-        	<%= link_to 'Edit', edit_event_path(event) %>
-        	<%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %>
-		<% end %>
+	  <div class="col-md-12 event-desc">
+        <%= event.desc %>
 	  </div>
 	  </div>
 	  <% end %>

@@ -6,8 +6,8 @@
     <%= user.name %>
   <% end %>
   <% if can? :destroy, @user %>
-  	| <%= link_to "", edit_user_path(user), :class => "glyphicon glyphicon-edit" %>
-    | <%= link_to "", user, method: :delete,
-                                  data: { confirm: "You sure?" }, :class => "glyphicon glyphicon-trash" %>
+  	| <%= link_to "Edit", edit_user_path(user) %>
+    | <%= link_to "Delete", user, method: :delete,
+                                  data: { confirm: "You sure?" } %>
   <% end %>
 </li>
