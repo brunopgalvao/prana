@@ -45,7 +45,7 @@
 	    <% else %>
 	      <td>
 			<!-- Button trigger modal -->
-			<button class="btn btn-success btn-sm" data-toggle="modal" data-target="#myModal">
+			<button class="btn btn-primary" data-toggle="modal" data-target="#myModal">
 			  Sign Up
 			</button>
 	      </td>
@@ -54,16 +54,18 @@
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-sm">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <%= link_to "Sign In", signin_path, :class => "btn btn-primary" %>
-        <%= link_to "Sign Up", signup_path, :class => "btn btn-primary" %>
+        <h4 class="modal-title" id="myModalLabel">Welcome</h4>
       </div>
       <div class="modal-body">
+        Please Sign in or Sign up.
       </div>
       <div class="modal-footer">
+        <%= link_to "Sign in", signin_path, :class => "btn btn-default" %>
+        <%= link_to "Sign up", signup_path, :class => "btn btn-default" %>
       </div>
     </div>
   </div>
