@@ -1,6 +1,8 @@
 <%= form_tag charges_path do %>
 <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-description="One class"
+		  data-name="PranaOne"
+		  data-label="One Class Pass"
+          data-description="One Class Pass"
           data-amount="1000"></script>
 <% end %>
