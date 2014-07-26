@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140618225448) do
+ActiveRecord::Schema.define(version: 20140726181323) do
 
   create_table "events", force: true do |t|
     t.string   "title"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 20140618225448) do
     t.boolean  "student",         default: true
     t.boolean  "instructor"
     t.text     "desc"
+    t.integer  "class_count"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

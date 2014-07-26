@@ -5,9 +5,9 @@ class ChargesController < ApplicationController
   def create
     # Amount in cents
     @amount = 1000
-
+    
     customer = Stripe::Customer.create(
-      :email => 'example@stripe.com',
+      :email => current_user.email,
       :card  => params[:stripeToken]
     )
 
@@ -17,7 +17,12 @@ class ChargesController < ApplicationController
       :description => 'One Class Pass',
       :currency    => 'usd'
     )
-
+    
+    user = current_user
+    user.increment(:class_count, by = 1)
+    user.save
+    redirect_to current_user, notice: "Thanks, you paid #{ActionController::Base.helpers.number_to_currency(@amount/100)}!"
+    
   rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to charges_path
