@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Package:</strong>
+  <%= @rate.package %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= number_to_currency(@rate.price) %>
+</p>
+
+<% if can? :destroy, @rates %>
+	<%= link_to 'Edit', edit_rate_path(@rate) %> |
+	<%= link_to 'Back', rates_path %>
+<% end %>

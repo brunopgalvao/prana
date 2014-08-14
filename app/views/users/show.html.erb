@@ -3,11 +3,12 @@
 <div class="row">
   <aside class="col-md-4">
     <section>
-      <h1>
         <%= gravatar_for @user, size: 178 %>
-        <%= @user.name %> 	
-		<p><h1>You have <%= @user.class_count %> classes</h1></p>
-      </h1>
+        <p><h1><%= @user.name %></h1></p>
+		<% if @user.instructor %>
+			<p><span class="badge">Instructor</span></p> 
+		<% end %>	
+		<p><h1><%= @user.class_count %> classes left</h1></p>
     </section>
     <section>
       <%= render 'shared/stats' %>

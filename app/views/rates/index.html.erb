@@ -1,0 +1,54 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Package</th>
+      <th>Price</th>
+	  <th></th>
+	  <% if can? :destroy, @rates %>
+	      <th></th>
+	      <th></th>
+	      <th></th>
+	  <% end %>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @rates.each do |rate| %>
+      <tr>
+        <td><%= rate.package %></td>
+        <td><%= number_to_currency(rate.price) %></td>
+	    <% if signed_in? %>
+	      <td>
+			<%= form_tag charges_path do %>
+			<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+			          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+					  data-label="Purchase"
+			          data-description="PranaOne"
+			          data-amount="<%= rate.price * 100 %>"></script>
+			<%= hidden_field :price, :value => rate.price.to_i * 100 %>
+			<% end %>
+		  </td>
+	    <% else %>
+	      <td>
+			<!-- Button trigger modal -->
+			<button class="btn btn-primary" data-toggle="modal" data-target="#sign_up_modal">
+			  Purchase
+			</button>
+	      </td>
+	    <% end %>
+		<% if can? :destroy, @rates %>
+	        <td><%= link_to 'Show', rate %></td>
+	        <td><%= link_to 'Edit', edit_rate_path(rate) %></td>
+	        <td><%= link_to 'Destroy', rate, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		<% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= render "shared/sign_up_modal" %>
+
+<br>
+<% if can? :destroy, @rates %>
+	<%= link_to 'New Rate', new_rate_path %>
+<% end %>

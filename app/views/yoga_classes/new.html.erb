@@ -8,7 +8,7 @@
               	<%= f.text_field :name, placeholder: "Class Name" %>
               	<%= f.text_field :desc, placeholder: "Class Description" %>
 				<%= f.select :day, options_for_select([['Select a day...'], ['Monday','1'], ['Tuesday','2'], ['Wednesday','3'], ['Thursday','4'], ['Friday','5'], ['Saturday','6'], ['Sunday','7']]) %>
-              	<%= f.time_field :time, placeholder: "Time", :pattern => '(1[012]|[1-9]):[0-5][0-9](\\s)?(?i)(am|pm)' %>
+				<%= f.time_select :time, {ampm: true}, :time_separator => "" %>
 				<%= f.select :instructor, options_from_collection_for_select(User.find_all_by_instructor(true), "name", "name") %>      
 		      	<%= f.submit "Add Class", class: "btn btn-large btn-primary" %>
 			  </div>

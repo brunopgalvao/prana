@@ -1,4 +1,6 @@
 Prana::Application.routes.draw do
+  resources :rates
+
   resources :events
   resources :charges
   resources :users do

@@ -1,27 +1,11 @@
 <% provide(:title, @yoga_class.name) %>
-<div class="row">
-	<div class="col-md-12">
-		<%= link_to "Schedule", yoga_classes_path, class: "crumb" %>
-	</div>
-	<div class="col-md-6 col-md-offset-3 event-title">
-		<%= @yoga_class.name %>
-	</div>
-	<div class="col-md-6 col-md-offset-3 event-desc">
-			<%= @yoga_class.desc %>
-		</div>
-		<div class="col-md-6 col-md-offset-3 event-desc">
-	  		<%= @yoga_class.day %>
-		</div>
-		<div class="col-md-6 col-md-offset-3 event-desc">
-	  	  	<%= @yoga_class.time.strftime('%l:%M %p') %>
-		</div>
-		<div class="col-md-6 col-md-offset-3 event-desc">
-	  	  	<%= @yoga_class.instructor %>
-		</div>
-		<div class="col-md-6 col-md-offset-3">
-			<% if can? :destroy, @yoga_class %>
-				<span class="manage"><%= link_to 'Edit', edit_yoga_class_path(@yoga_class) %></span> |
-				<span class="manage"><%= link_to 'Delete', @yoga_class, method: :delete, data: { confirm: 'Are you sure?' } %></span>
-			<% end %>
-		</div>
-</div>
+		<p><%= link_to "Schedule", yoga_classes_path, class: "crumb" %></p>
+		<p><%= @yoga_class.name %></p>
+		<p><%= @yoga_class.desc %></p>
+		<p><%= @yoga_class.day %></p>
+		<p><%= @yoga_class.time.strftime('%l:%M %p') %></p>
+		<p><%= @yoga_class.instructor %></p>
+		<% if can? :destroy, @yoga_class %>
+				<p><span class="manage"><%= link_to 'Edit', edit_yoga_class_path(@yoga_class) %></span> |
+				<span class="manage"><%= link_to 'Delete', @yoga_class, method: :delete, data: { confirm: 'Are you sure?' } %></span></p>
+		<% end %>

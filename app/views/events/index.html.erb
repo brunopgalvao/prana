@@ -1,6 +1,6 @@
 <div class="manage">
 	<% if can? :destroy, @user %>
-		<span class="manage"><%= link_to "Add an Event", events_path %></span>
+		<span class="manage"><%= link_to "Add an Event", new_event_path %></span>
 	<% end %>
 </div>
 

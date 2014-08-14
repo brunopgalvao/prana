@@ -9,19 +9,17 @@
       <%= f.label :name %>
       <%= f.text_field :name %>
 
-      <%= f.label :desc %>
+      <%= f.label :description %>
       <%= f.text_field :desc %>
 	  
       <%= f.label :day %>
-      <%= f.text_field :day %>
+      <%= f.select :day, [['Select a day...'], ['Monday','1'], ['Tuesday','2'], ['Wednesday','3'], ['Thursday','4'], ['Friday','5'], ['Saturday','6'], ['Sunday','7']] %>
 
-      <%#= f.label :time %>
-      <%#= f.text_field :time, :value => @yoga_class.time.strftime('%l:%M %p') %>
-	<div class="field">
-		<%= time_select :yoga_class, :time, {ampm: true} %>
-	</div>
+	  <%= f.label :time %><br \>
+	  <%= f.time_select :time, {ampm: true}, :time_separator => "" %>
+
 	  <%= f.label :instructor %>
-	  <%= f.text_field :instructor %>
+	  <%= f.select :instructor, options_from_collection_for_select(User.find_all_by_instructor(true), "name", "name", User) %> 
 	  
       <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
     <% end %>
