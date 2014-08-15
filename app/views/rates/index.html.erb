@@ -25,7 +25,7 @@
 					  data-label="Purchase"
 			          data-description="PranaOne"
 			          data-amount="<%= rate.price * 100 %>"></script>
-			<%= hidden_field :price, :value => rate.price.to_i * 100 %>
+			<%= hidden_field :price, :value, :value => rate.price.to_i * 100 %>
 			<% end %>
 		  </td>
 	    <% else %>

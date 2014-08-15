@@ -4,7 +4,7 @@ class ChargesController < ApplicationController
 
   def create
     # Amount in cents
-    @amount = params[:price][:value][0]
+    @amount = params[:price][:value].to_i
     logger.debug "@amount is: #{@amount}"
     
     customer = Stripe::Customer.create(
